@@ -7,8 +7,7 @@
 ### Added
 
 - **Vibe Coding** 방법론 도입 및 문서화 명시.
-- 프로젝트 구조 초기화 (`scraper/`, `web/`, `docs/`, `.github/`).
-- `docs/CF.md`: 프로젝트 기술 명세서 및 기획안.
-- `GEMINI.md`: 바이브 코딩 행동 강령 및 시스템 지침.
-- `README.md`: 프로젝트 기본 설명 문서.
-- `.gitignore`: Node.js, Astro 및 환경 변수 제외 설정.
+- 프로젝트 설계 고도화에 따른 디렉토리 구조 재편 (`packages/`, `data/`, `infra/`, `logs/` 도입).
+- `GEMINI.md`: AI 실행 지침(Master Guide)으로 전면 개편.
+- `README.md`: 프로젝트 비전 및 최신 아키텍처 반영.
+- `docs/CF.md`: 기술 명세 및 기획 의도 구체화.
