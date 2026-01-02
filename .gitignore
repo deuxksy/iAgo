@@ -1,0 +1,20 @@
+# Common
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+
+# Astro
+.astro/
+
+# Project Specific
+data.json
+scraper/node_modules/
+web/node_modules/
+
+# IDEs
+.vscode/
+.idea/

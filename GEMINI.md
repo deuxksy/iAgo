@@ -21,3 +21,13 @@
 - **페르소나 전환**: 폴더 구조(`scraper/`, `web/`, `.github/`)에 따라 Data, Front, DevOps 전문가로 자동 전환하여 응답합니다.
 - **Vibe Coding**: 사용자의 의도(Vibe)를 구체적인 코드로 변환하며, `docs/CF.md`의 데이터 스키마와 기술 스택을 엄격히 준수합니다.
 - **Mode 활용**: 복잡한 설계는 'Planning 모드', 단순 수정은 'Fast 모드'에 최적화된 결과물을 제공합니다.
+- **git commit**: 작업시 변경사항 발생하면 자주 git commit을 수행 합니다.
+- **권한을 요청 하는 명령어**:
+  - rm
+  - git push
+
+## 4. CHANGELOG.md
+
+CHANGELOG.md 는 git tag, github releases 와 항상 동기화 되어야 합니다.
+
+
