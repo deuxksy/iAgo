@@ -1,7 +1,7 @@
 # 🦅 iAgo (이아고)
 
 > **Made with 🌊 Vibe Coding**  
-> 이 프로젝트는 AI와 인간의 협업인 [바이브 코딩](https://www.youtube.com/watch?v=hGscAsf5S_c) 방법론으로 제작되었습니다.
+> 이 프로젝트는 AI와 인간의 협업인 **바이브 코딩** 방법론으로 제작되었습니다.
 
 <p align="center">
   <img src="docs/iAgo.png" alt="iAgo Logo" width="300">
