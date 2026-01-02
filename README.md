@@ -4,6 +4,9 @@
   <img src="docs/iAgo.png" alt="iAgo Logo" width="300">
 </p>
 
+> **Made with 🌊 Vibe Coding**  
+> 이 프로젝트는 AI와 인간의 협업인 [바이브 코딩](https://www.youtube.com/watch?v=hGscAsf5S_c) 방법론으로 제작되었습니다.
+
 알라딘 만화 데이터의 인구통계학적 분석을 통한 직관적인 모바일 웹 가이드
 
 > "단순한 순위 나열을 넘어, 당신의 타겟층이 지지하는 '숨은 명작'과 '우연한 발견'을 선사합니다."
@@ -49,11 +52,9 @@ iago/
 └── README.md               # 프로젝트 공식 문서
 ```
 
----
+## 📄 라이선스 (License)
 
-## 🌊 방법론: Vibe Coding
-
-이 프로젝트는 **바이브 코딩(Vibe Coding)** 방법론을 통해 구축됩니다. 개발자는 AI에게 의도(Vibe)를 전달하고 결과물을 조율하는 감독 역할을 수행하며, 기획부터 배포까지 AI와 긴밀히 협업하여 생산성을 극대화합니다.
+이 프로젝트는 [MIT License](LICENSE)를 따릅니다.
 
 ---
 © 2026 Project iAgo. Built with Vibe Coding.
