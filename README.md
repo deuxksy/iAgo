@@ -4,7 +4,10 @@
 
 > "단순한 순위 나열을 넘어, 당신의 타겟층이 지지하는 '숨은 명작'과 '우연한 발견'을 선사합니다."
 
-![iAgo Logo](docs/iAgo.png)
+<p align="center">
+  <img src="docs/iAgo.png" alt="iAgo Logo" width="300">
+</p>
+
 
 ---
 
