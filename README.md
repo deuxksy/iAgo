@@ -1,11 +1,11 @@
 # 🦅 iAgo (이아고)
 
+> **Made with 🌊 Vibe Coding**  
+> 이 프로젝트는 AI와 인간의 협업인 [바이브 코딩](https://www.youtube.com/watch?v=hGscAsf5S_c) 방법론으로 제작되었습니다.
+
 <p align="center">
   <img src="docs/iAgo.png" alt="iAgo Logo" width="300">
 </p>
-
-> **Made with 🌊 Vibe Coding**  
-> 이 프로젝트는 AI와 인간의 협업인 [바이브 코딩](https://www.youtube.com/watch?v=hGscAsf5S_c) 방법론으로 제작되었습니다.
 
 알라딘 만화 데이터의 인구통계학적 분석을 통한 직관적인 모바일 웹 가이드
 
