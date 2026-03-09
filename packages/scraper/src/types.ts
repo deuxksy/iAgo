@@ -1,7 +1,7 @@
 // packages/scraper/src/types.ts
 
 /** 구매자 분포 키: {연령대}_{성별} */
-export type AgeGroup = "10s" | "20s" | "30s" | "40s" | "50s";
+export type AgeGroup = "10s" | "20s" | "30s" | "40s" | "50s" | "60s";
 export type Gender = "male" | "female";
 export type BuyerKey = `${AgeGroup}_${Gender}`;
 
@@ -17,6 +17,8 @@ export interface BuyerDist {
   "40s_female": number;
   "50s_male": number;
   "50s_female": number;
+  "60s_male": number;
+  "60s_female": number;
 }
 
 /** 평점 분포 (합계 100%) */

@@ -7,7 +7,8 @@ export function ageToGroup(age: number): AgeGroup {
   if (age < 30) return "20s";
   if (age < 40) return "30s";
   if (age < 50) return "40s";
-  return "50s";
+  if (age < 60) return "50s";
+  return "60s";
 }
 
 /**
@@ -21,6 +22,7 @@ export function parseBuyerDist(text: string): BuyerDist {
     "30s_male": 0, "30s_female": 0,
     "40s_male": 0, "40s_female": 0,
     "50s_male": 0, "50s_female": 0,
+    "60s_male": 0, "60s_female": 0,
   };
 
   // "20대 남성 35%" 패턴 매칭
