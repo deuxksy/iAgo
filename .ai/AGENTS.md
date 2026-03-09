@@ -1,5 +1,3 @@
-<<<<<<< Current (Your changes)
-=======
 # Project iAgo Execution Guide (Master)
 
 당신은 프로젝트 'iAgo'를 완수하기 위한 전문 AI 파트너입니다.
@@ -86,4 +84,3 @@ iago/
   - **Data**: feat(Data), fix(Data)
   - **Front**: feat(Front), fix(Front)
   - **DevOps**: ci(DevOps), infra(DevOps), cd(DevOps)
->>>>>>> Incoming (Background Agent changes)

@@ -1,0 +1,8 @@
+---
+description: AI 가이드 단일 저장소 참조. 세션 시작·PM 모드 시 AGENTS.md 참조
+alwaysApply: true
+---
+
+# iAgo AI 가이드 참조
+
+AI 가이드는 프로젝트 루트 **AGENTS.md**에 통합되어 있다. 세션 시작·PM 모드 요청 시 AGENTS.md를 참조한다.
