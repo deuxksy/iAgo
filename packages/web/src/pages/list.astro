@@ -1,0 +1,52 @@
+---
+// packages/web/src/pages/list.astro
+import Layout from '../layouts/Layout.astro';
+import ComicCard from '../components/ComicCard.astro';
+import comicsData from '../../public/data/comics.json';
+
+// 쿼리 파라미터 파싱
+const age = Astro.url.searchParams.get('age') || '20s';
+const gender = Astro.url.searchParams.get('gender') || 'male';
+const buyerKey = `${age}_${gender}` as keyof typeof comicsData.comics[0]['buyer_dist'];
+
+// 정렬: 선택한 그룹 구매율 내림차순
+const sorted = [...comicsData.comics].sort((a, b) =>
+  (b.buyer_dist?.[buyerKey] || 0) - (a.buyer_dist?.[buyerKey] || 0)
+);
+
+const displayList = sorted.slice(0, 20);
+
+const ageLabels: Record<string, string> = {
+  '10s': '10대',
+  '20s': '20대',
+  '30s': '30대',
+  '40s': '40대',
+  '50s': '50대',
+};
+---
+
+<Layout title="추천 리스트">
+  <div class="mb-4">
+    <a href="/" class="btn btn-ghost btn-sm">
+      ← 다시 선택
+    </a>
+  </div>
+
+  <div class="text-center mb-6">
+    <h1 class="text-xl font-bold">{ageLabels[age]} {gender === 'male' ? '남성' : '여성'} 추천</h1>
+    <p class="text-sm text-base-content/70">구매율 상위 {displayList.length}개</p>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    {displayList.map((comic) => (
+      <ComicCard
+        isbn={comic.isbn}
+        title={comic.title}
+        author={comic.author}
+        cover_url={comic.cover_url}
+        price={comic.price}
+        buyerPercent={comic.buyer_dist?.[buyerKey] || 0}
+      />
+    ))}
+  </div>
+</Layout>

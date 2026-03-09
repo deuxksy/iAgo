@@ -1,0 +1,31 @@
+---
+// packages/web/src/components/ComicCard.astro
+interface Props {
+  isbn: string;
+  title: string;
+  author: string;
+  cover_url: string;
+  price: number;
+  buyerPercent: number;
+}
+
+const { isbn, title, author, cover_url, price, buyerPercent } = Astro.props;
+---
+
+<a href={`/detail/${isbn}`} class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+  <figure class="px-4 pt-4">
+    <img src={cover_url} alt={title} class="rounded-xl h-40 object-cover" loading="lazy" />
+  </figure>
+  <div class="card-body p-4">
+    <h2 class="card-title text-sm line-clamp-2">{title}</h2>
+    <p class="text-xs text-base-content/70">{author}</p>
+    <p class="text-sm font-medium">{price.toLocaleString()}원</p>
+    <div class="mt-2">
+      <div class="flex justify-between text-xs mb-1">
+        <span>구매율</span>
+        <span class="font-medium">{buyerPercent}%</span>
+      </div>
+      <progress class="progress progress-primary" value={buyerPercent} max="100"></progress>
+    </div>
+  </div>
+</a>

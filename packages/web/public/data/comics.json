@@ -1,0 +1,29 @@
+{
+  "meta": { "updated_at": "2026-03-09T00:00:00Z", "total_count": 2 },
+  "comics": [
+    {
+      "isbn": "9791162241598",
+      "title": "나 혼자만 레벨업 1",
+      "author": "추공",
+      "publisher": "카카오웹툰",
+      "cover_url": "https://image.aladin.co.kr/product/12345/1.jpg",
+      "price": 14000,
+      "aladin_url": "https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=9791162241598",
+      "rating_avg": 9.5,
+      "rating_dist": { "5": 80, "4": 15, "3": 3, "2": 1, "1": 1 },
+      "buyer_dist": { "10s_male": 5, "10s_female": 2, "20s_male": 35, "20s_female": 8, "30s_male": 25, "30s_female": 10, "40s_male": 10, "40s_female": 5, "50s_male": 0, "50s_female": 0 }
+    },
+    {
+      "isbn": "9791162241604",
+      "title": "나 혼자만 레벨업 2",
+      "author": "추공",
+      "publisher": "카카오웹툰",
+      "cover_url": "https://image.aladin.co.kr/product/12345/2.jpg",
+      "price": 14000,
+      "aladin_url": "https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=9791162241604",
+      "rating_avg": 9.3,
+      "rating_dist": { "5": 75, "4": 18, "3": 5, "2": 1, "1": 1 },
+      "buyer_dist": { "10s_male": 8, "10s_female": 3, "20s_male": 30, "20s_female": 12, "30s_male": 22, "30s_female": 15, "40s_male": 6, "40s_female": 4, "50s_male": 0, "50s_female": 0 }
+    }
+  ]
+}
