@@ -1,0 +1,207 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://iago.local/schemas/iago-comics.schema.json",
+  "title": "iAgo Comics Dataset",
+  "description": "iAgo 정적 호스팅용 만화 데이터셋 스키마. data/comics.json 파일 구조를 정의한다.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "generated_at": {
+      "type": "string",
+      "description": "데이터셋 생성 시각(ISO8601)"
+    },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/ComicItem" }
+    }
+  },
+  "definitions": {
+    "ComicItem": {
+      "type": "object",
+      "required": ["ids", "title", "contributors", "publication", "categories", "stats"],
+      "additionalProperties": false,
+      "properties": {
+        "ids": {
+          "type": "object",
+          "required": ["isbn13", "aladin_item_id"],
+          "additionalProperties": false,
+          "properties": {
+            "isbn13": { "type": ["string", "null"] },
+            "aladin_item_id": { "type": ["integer", "null"] },
+            "aladin_addbook_code": { "type": ["string", "null"] },
+            "source_url": { "type": ["string", "null"] }
+          }
+        },
+        "title": { "type": "string" },
+        "contributors": {
+          "type": "object",
+          "required": ["authors"],
+          "additionalProperties": false,
+          "properties": {
+            "authors": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name"],
+                "additionalProperties": false,
+                "properties": { "name": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "publication": {
+          "type": "object",
+          "required": ["publisher", "published_at"],
+          "additionalProperties": false,
+          "properties": {
+            "publisher": { "type": "string" },
+            "published_at": { "type": ["string", "null"] }
+          }
+        },
+        "age_rating": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "min_age": { "type": ["integer", "null"], "minimum": 0 },
+            "label": { "type": ["string", "null"] }
+          }
+        },
+        "physical": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "pages": { "type": ["integer", "null"], "minimum": 1 },
+            "weight_g": { "type": ["integer", "null"], "minimum": 0 },
+            "size_mm": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "w": { "type": ["integer", "null"], "minimum": 0 },
+                "h": { "type": ["integer", "null"], "minimum": 0 }
+              }
+            }
+          }
+        },
+        "categories": {
+          "type": "object",
+          "required": ["paths"],
+          "additionalProperties": false,
+          "properties": {
+            "paths": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CategoryPath" }
+            }
+          }
+        },
+        "series": { "$ref": "#/definitions/Series" },
+        "commerce": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "currency": { "type": "string", "enum": ["KRW"] },
+            "price_list": { "type": ["integer", "null"], "minimum": 0 },
+            "price_sale": { "type": ["integer", "null"], "minimum": 0 },
+            "discount_rate": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+            "discount_amount": { "type": ["integer", "null"], "minimum": 0 }
+          }
+        },
+        "popularity": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "sales_point": { "type": ["integer", "null"], "minimum": 0 },
+            "rank_text": { "type": ["string", "null"] }
+          }
+        },
+        "stats": {
+          "type": "object",
+          "required": ["buyer", "rating"],
+          "additionalProperties": false,
+          "properties": {
+            "buyer": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "by_age_gender_percent": {
+                  "type": "object",
+                  "additionalProperties": { "type": "number" }
+                },
+                "captured_at": { "type": ["string", "null"] }
+              }
+            },
+            "rating": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "distribution_count": {
+                  "type": ["object", "null"],
+                  "additionalProperties": { "type": "integer" }
+                },
+                "avg": { "type": ["number", "null"], "minimum": 0 },
+                "count_reviews": { "type": ["integer", "null"], "minimum": 0 },
+                "count_100char": { "type": ["integer", "null"], "minimum": 0 },
+                "captured_at": { "type": ["string", "null"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "CategoryPath": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/CategoryNode" }
+    },
+    "CategoryNode": {
+      "type": "object",
+      "required": ["label"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string" },
+        "cid": { "type": ["integer", "null"] },
+        "href": { "type": ["string", "null"] }
+      }
+    },
+    "Series": {
+      "type": ["object", "null"],
+      "required": ["key", "source", "source_id", "members"],
+      "additionalProperties": false,
+      "properties": {
+        "key": { "type": "string" },
+        "source": { "type": "string", "enum": ["aladin"] },
+        "source_id": { "type": "string" },
+        "title": { "type": ["string", "null"] },
+        "size": { "type": ["integer", "null"], "minimum": 1 },
+        "version": { "type": ["integer", "null"], "minimum": 1 },
+        "updated_at": { "type": ["string", "null"] },
+        "members": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["index", "ids"],
+            "additionalProperties": false,
+            "properties": {
+              "index": { "type": "integer", "minimum": 1 },
+              "title": { "type": ["string", "null"] },
+              "ids": {
+                "type": "object",
+                "required": ["aladin_item_id"],
+                "additionalProperties": false,
+                "properties": {
+                  "aladin_item_id": { "type": "integer" },
+                  "isbn13": { "type": ["string", "null"] }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
