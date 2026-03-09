@@ -1,17 +1,10 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="홈">
+  <div class="text-center py-10">
+    <h1 class="text-3xl font-bold mb-4">만화 추천 받기</h1>
+    <p class="text-base-content/70">연령대와 성별을 선택하세요</p>
+  </div>
+</Layout>
