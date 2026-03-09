@@ -1,0 +1,81 @@
+---
+// packages/web/src/pages/detail/[isbn].astro
+import Layout from '../../layouts/Layout.astro';
+import comicsData from '../../../public/data/comics.json';
+
+export function getStaticPaths() {
+  return comicsData.comics.map((comic) => ({
+    params: { isbn: comic.isbn },
+    props: { comic },
+  }));
+}
+
+const { comic } = Astro.props;
+
+const buyerLabels = [
+  { key: '10s_male', label: '10대 남성' },
+  { key: '10s_female', label: '10대 여성' },
+  { key: '20s_male', label: '20대 남성' },
+  { key: '20s_female', label: '20대 여성' },
+  { key: '30s_male', label: '30대 남성' },
+  { key: '30s_female', label: '30대 여성' },
+  { key: '40s_male', label: '40대 남성' },
+  { key: '40s_female', label: '40대 여성' },
+  { key: '50s_male', label: '50대 남성' },
+  { key: '50s_female', label: '50대 여성' },
+];
+---
+
+<Layout title={comic.title}>
+  <div class="mb-4">
+    <a href="/list" class="btn btn-ghost btn-sm">← 목록</a>
+  </div>
+
+  <div class="card bg-base-100 shadow-md">
+    <figure class="px-6 pt-6">
+      <img src={comic.cover_url} alt={comic.title} class="rounded-xl max-h-64" />
+    </figure>
+    <div class="card-body">
+      <h1 class="card-title text-lg">{comic.title}</h1>
+      <p class="text-sm text-base-content/70">{comic.author} · {comic.publisher}</p>
+      <p class="text-lg font-bold text-primary">{comic.price.toLocaleString()}원</p>
+
+      <div class="flex items-center gap-2 mt-2">
+        <span class="text-yellow-500">★</span>
+        <span class="font-medium">{comic.rating_avg}</span>
+      </div>
+
+      <a href={comic.aladin_url} target="_blank" class="btn btn-outline btn-sm mt-4">
+        알라딘에서 보기
+      </a>
+    </div>
+  </div>
+
+  <!-- 구매자 분포 -->
+  <div class="mt-6">
+    <h2 class="font-bold mb-3">구매자 분포</h2>
+    <div class="space-y-2">
+      {buyerLabels.map(({ key, label }) => (
+        <div class="flex items-center gap-2">
+          <span class="text-xs w-20">{label}</span>
+          <progress class="progress progress-secondary flex-1" value={comic.buyer_dist[key]} max="100"></progress>
+          <span class="text-xs w-10 text-right">{comic.buyer_dist[key]}%</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- 평점 분포 -->
+  <div class="mt-6">
+    <h2 class="font-bold mb-3">평점 분포</h2>
+    <div class="space-y-2">
+      {[5, 4, 3, 2, 1].map((star) => (
+        <div class="flex items-center gap-2">
+          <span class="text-xs w-8">{star}점</span>
+          <progress class="progress progress-accent flex-1" value={comic.rating_dist[star.toString() as keyof typeof comic.rating_dist]} max="100"></progress>
+          <span class="text-xs w-10 text-right">{comic.rating_dist[star.toString() as keyof typeof comic.rating_dist]}%</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
