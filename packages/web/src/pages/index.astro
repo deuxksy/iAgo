@@ -1,10 +1,58 @@
 ---
+// packages/web/src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+
+const ageGroups = [
+  { value: '10s', label: '10대' },
+  { value: '20s', label: '20대' },
+  { value: '30s', label: '30대' },
+  { value: '40s', label: '40대' },
+  { value: '50s', label: '50대' },
+];
 ---
 
 <Layout title="홈">
-  <div class="text-center py-10">
-    <h1 class="text-3xl font-bold mb-4">만화 추천 받기</h1>
-    <p class="text-base-content/70">연령대와 성별을 선택하세요</p>
+  <div class="text-center py-6">
+    <h1 class="text-2xl font-bold mb-2">만화 추천 받기</h1>
+    <p class="text-base-content/70 text-sm mb-8">당신의 연령대와 성별을 알려주세요</p>
   </div>
+
+  <form action="/list" method="GET" class="space-y-8">
+    <!-- 연령대 선택 -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-medium">연령대</span>
+      </label>
+      <div class="flex flex-wrap gap-2 justify-center">
+        {ageGroups.map((group) => (
+          <input
+            type="radio"
+            name="age"
+            value={group.value}
+            class="btn"
+            aria-label={group.label}
+            checked={group.value === '20s'}
+          />
+        ))}
+      </div>
+    </div>
+
+    <!-- 성별 선택 -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-medium">성별</span>
+      </label>
+      <div class="flex gap-4 justify-center">
+        <input type="radio" name="gender" value="male" class="btn" aria-label="남성" checked />
+        <input type="radio" name="gender" value="female" class="btn" aria-label="여성" />
+      </div>
+    </div>
+
+    <!-- 제출 버튼 -->
+    <div class="pt-4">
+      <button type="submit" class="btn btn-primary btn-block btn-lg">
+        추천받기 🎯
+      </button>
+    </div>
+  </form>
 </Layout>
