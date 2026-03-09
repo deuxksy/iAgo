@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"git add packages/scraper/ && git commit -m \\\"$(cat <<'EOF'\\nfeat(Data): initialize scraper package with TypeScript and Playwright\\n\\n- package.json, tsconfig.json 설정\\n- Playwright chromium...",
+  "error": "Exit code 128\nwarning: 'packages/scraper/packages/scraper/' 디렉터리를 열 수 없습니다: No such file or directory\nfatal: 'packages/scraper/' 경로명세가 어떤 파일과도 일치하지 않습니다\n\nwarning: 'packages/scraper/packages/scraper/' 디렉터리를 열 수 없습니다: No such file or directory\nfatal: 'packages/scraper/' 경로명세가 어떤 파일과도 일치하지 않습니다",
+  "timestamp": "2026-03-09T09:05:04.433Z",
+  "retry_count": 2
+}
